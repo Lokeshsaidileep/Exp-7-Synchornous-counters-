@@ -46,43 +46,93 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1.Create a new project in QuartusII software.
 
+2.Name the project as uc for upcounter and dc for down counter.
 
+3.Create a new verilog hdl file in the project file.
+
+4.Name the module as dc and uc for down counter and up counter.
+
+5.Within the module declare input and output variables.
+
+6.Create a loop using if-else with condition parameter as reset value.
+
+7.End the loop.
+
+8.End the module.
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+
+Developed by: S.LOKESH SAI DILEEP
+
+RegisterNumber: 212221230111 
 */
+## 4bit up counter
 
+module uc(input CLK, input reset,output[0:3]counter);
 
+reg[0:3]counter_up;
 
+always@(posedge CLK or posedge reset)
 
+begin
 
+if(reset)
 
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+counter_up <=4'd0;
 
+else
 
+counter_up <=counter_up+4'd1;
 
+end
 
+assign counter = counter_up;
 
+endmodule
 
+## 4bit down counter
 
+module dc(input CLK,input reset, output[0:3]counter);
 
+reg[0:3]counter_down;
+
+always@(posedge CLK or posedge reset)
+
+begin
+
+if(reset)
+
+counter_down <= 4'd0;
+
+else
+
+counter_down<=counter_down-4'd1;
+
+end
+
+assign counter = counter_down;
+
+endmodule
+
+### RTL LOGIC UP COUNTER AND DOWN COUNTER 
+
+![image](https://user-images.githubusercontent.com/94883079/203003760-3d7638e5-42fd-43f5-a75a-36479cd9bce6.png)
+
+![image](https://user-images.githubusercontent.com/94883079/203002686-6cfa85e8-2fbd-4482-b339-333737dfeb73.png)
 
 ### TIMING DIGRAMS FOR COUNTER  
+![image](https://user-images.githubusercontent.com/94883079/203002763-c49b2eb7-fdcc-417a-a56e-d1fcc7973fc3.png)
 
-
-
-
+![image](https://user-images.githubusercontent.com/94883079/203002794-fe5cc374-5790-4fd5-9f67-4d44a96f0a4c.png)
 
 ### TRUTH TABLE 
+![image](https://user-images.githubusercontent.com/94883079/203002906-bfb1b917-c4c5-4445-9be7-c6358866f18b.png)
 
+![image](https://user-images.githubusercontent.com/94883079/203002942-d1de018d-ae7d-49b3-9fe9-71b36ddb8433.png)
 
-
-
-
-
-### RESULTS 
+### RESULT:
+The 4 bit up and down counters has been implemented and validated the functionality.
